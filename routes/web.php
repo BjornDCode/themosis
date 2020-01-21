@@ -13,11 +13,9 @@ Route::any('page', function ($page) {
 
 Route::get('blog/{post}', 'PostController@show');
 
-// Post Routes
-// - Single Post
-// - List
-
 // Front Page
-Route::get('/', function () {
-    return view('welcome');
+Route::get('front', function ($page) {
+    return view('home', [
+        'page' => $page,
+    ]);
 });
