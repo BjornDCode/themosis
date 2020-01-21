@@ -15,4 +15,10 @@ class Post extends Model
     {
         return 'post_name';
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'comment_ID');
+    }
+
 }
