@@ -27,3 +27,4 @@ node_modules/
 .env
 
 wpedeploy.sh
+/htdocs/wp-config.php
