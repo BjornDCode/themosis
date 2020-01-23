@@ -13,5 +13,11 @@ let mix = require('laravel-mix');
 mix.setPublicPath('dist');
 
 mix.js('assets/js/theme.js', 'dist/js/theme.min.js')
-    .sass('assets/sass/style.scss', 'dist/css/theme.css')
-    .sass('assets/sass/woocommerce.scss', 'dist/css');
+    .postCss('assets/css/style.css', 'dist/css/theme.css', [
+        require('tailwindcss')(),
+        require('autoprefixer')(),
+        require('@fullhuman/postcss-purgecss')({
+            content: ['./**/*.php'],
+            defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+        }),
+    ]);
